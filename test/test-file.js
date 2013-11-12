@@ -148,5 +148,12 @@ describe('File', function() {
     assert.equal('(min-width:980px)', file.blocks[0].media);
   });
 
+  it('should detect an optional configuration target', function() {
+    var filename = __dirname + '/fixtures/optional_configuration_target.html';
+    var file = new File(filename);
+    assert.equal(1, file.blocks.length);
+    assert.ok(file.blocks[0].target);
+    assert.equal('thirdparty', file.blocks[0].target);
+  });
 
 });
